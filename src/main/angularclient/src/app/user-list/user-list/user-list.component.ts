@@ -4,14 +4,21 @@ import { FormsModule } from '@angular/forms';
 import { User } from '../../model/user';
 import { UserService } from '../../service/user.service';
 
+/**
+ * A decorator that defines metadata about the component, including its selector, template, and style URLs.
+ */
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [CommonModule,
-    FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './user-list.component.html',
-  styleUrl: './user-list.component.css'
+  styleUrl: './user-list.component.css',
 })
+
+/**
+  * A class constructor that initializes the this.users array to an empty array.
+  * It takes a single argument, userService, which is an instance of the UserService service.
+  */
 export class UserListComponent implements OnInit {
   users: User[];
 
@@ -19,8 +26,11 @@ export class UserListComponent implements OnInit {
     this.users = [];
   }
 
+  /**
+   * initializes the component by subscribing to the user service to retrieve all users
+   */
   ngOnInit() {
-    this.userService.findAll().subscribe(data => {
+    this.userService.findAll().subscribe((data) => {
       this.users = data;
     });
   }

@@ -23,10 +23,19 @@ export class UserFormComponent {
     this.user = new User('', '', '');
   }
 
+  /**
+ * Saves the user to the backend.
+ *
+ * @param user - the user to save
+ * @returns a promise that resolves when the user is saved
+ */
   onSubmit() {
     this.userService.save(this.user).subscribe(() => this.gotoUserList());
   }
 
+  /**
+ * navigates to the user list view
+ */
   gotoUserList() {
     this.router.navigate(['/users']);
   }

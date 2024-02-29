@@ -17,15 +17,20 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
+	/**
+	 * A CommandLineRunner bean that initializes the database with sample data.
+	 * 
+	 * @param userRepository the user repository
+	 * @return the CommandLineRunner
+	 */
 	@Bean
-	CommandLineRunner init(UserRepository userRepository) {
+	public CommandLineRunner init(UserRepository userRepository) {
 		return args -> {
 			Stream.of("John", "Julie", "Jennifer", "Helen", "Rachel").forEach(name -> {
-                User user = new User(name, name.toLowerCase() + "@domain.com");
-                userRepository.save(user);
-            });
-            userRepository.findAll().forEach(System.out::println);
-
+				User user = new User(name, name.toLowerCase() + "@domain.com");
+				userRepository.save(user);
+			});
+			userRepository.findAll().forEach(System.out::println);
 		};
 	}
 }

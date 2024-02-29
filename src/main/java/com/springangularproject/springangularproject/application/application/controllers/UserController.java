@@ -14,18 +14,29 @@ import com.springangularproject.springangularproject.application.application.rep
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
-    
-     private final UserRepository userRepository;
 
-     public UserController(UserRepository userRepository) {
+    private final UserRepository userRepository;
+
+    public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
-     }
+    }
 
-      @GetMapping("/users")
+    /**
+     * Returns a list of all users in the system.
+     * 
+     * @return a list of all users in the system
+     */
+    @GetMapping("/users")
     public List<User> getUsers() {
         return (List<User>) userRepository.findAll();
     }
 
+    
+/**
+ * Adds a new user to the system.
+ * 
+ * @param user the user to be added
+ */
     @PostMapping("/users")
     void addUser(@RequestBody User user) {
         if (user != null) {
@@ -34,5 +45,5 @@ public class UserController {
             throw new IllegalArgumentException("User object cannot be null");
         }
     }
-    
+
 }
