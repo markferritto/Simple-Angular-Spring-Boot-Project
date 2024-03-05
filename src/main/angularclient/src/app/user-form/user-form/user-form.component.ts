@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { UserService } from '../../service/user.service';
 import { User } from '../../model/user';
 
@@ -17,7 +17,6 @@ export class UserFormComponent {
   user: User;
 
   constructor(
-    private route: ActivatedRoute, 
       private router: Router, 
         private userService: UserService) {
     this.user = new User('', '', '');

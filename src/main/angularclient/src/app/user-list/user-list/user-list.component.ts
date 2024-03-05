@@ -27,7 +27,8 @@ export class UserListComponent implements OnInit {
   }
 
   /**
-   * initializes the component by subscribing to the user service to retrieve all users
+   * Initializes the component by subscribing to the user service to retrieve all users.
+   * The userService is injected into the component, and the findAll method is called to retrieve all the users.
    */
   ngOnInit() {
     this.userService.findAll().subscribe((data) => {

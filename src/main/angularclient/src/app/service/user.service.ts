@@ -4,7 +4,8 @@ import { User } from '../model/user';
 import { Observable } from 'rxjs';
 
 /**
-The @Injectable decorator is used to mark the UserService class as a service that can be injected into other components and services. 
+* The @Injectable decorator is used to mark the UserService class as a service that can be injected into other components and services. 
+* The providedIn: 'root' option in the `@Injectable` decorator makes the service available throughout the application.
  */
 @Injectable({
   providedIn: 'root'
