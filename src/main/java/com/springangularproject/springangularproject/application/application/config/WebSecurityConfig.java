@@ -11,15 +11,30 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
+/**
+ * Configures Spring Security for the application.
+ */
 @EnableWebMvc
 @Configuration
 public class WebSecurityConfig {
 
+       /**
+     * Creates a {@link SecurityFilterChain} with the specified {@link HttpSecurity}.
+     *
+     * @param http the {@link HttpSecurity} to use
+     * @return the {@link SecurityFilterChain}
+     * @throws Exception if an error occurs while configuring Spring Security
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.build();
     }
 
+    /**
+     * Configures Cross-Origin Resource Sharing (CORS) for the application.
+     *
+     * @return the {@link CorsConfigurationSource} for CORS
+     */
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
